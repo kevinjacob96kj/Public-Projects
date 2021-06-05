@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Microblog</title>
+    <link type="text/css" rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img class="logo2" src="/static/logo.svg" alt="logo" />Microblog
+        </div>
+        <div>
+            <ul class="navbar_navigation">
+                <li class="navbar__navigation-item"><a href="#" class="navbar__link">Recent</a></li>
+                <li class="navbar__navigation-item"><a href="#" class="navbar__link">Calander</a></li>
+
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <p class="sample1">Add new entry</p>
+            <form class="form" action="/" method="POST">
+                <p class="title_text">
+                    <textarea name="title_handle" class="title_handle" id="title_handle" placeholder="Title"></textarea>
+                </p>
+                <textarea name="content" class="content" id="entry" placeholder="Write a Log For Today!"></textarea>
+                <p class="button_submit">
+                    <button class="button1" type="submit">Submit</button>
+                </p>
+            </form>
+        </section>
+        <div class="recent">
+            <p>Recent Posts</p>
+        </div>
+
+        <section>
+        {% for item in entries%}
+            <article class="post">
+                <div style="text-align:center" id="title">
+                    <p>
+                        {{item[2]}}
+                    </p>
+                    <time datetime="05-30-2019">• {{item[1]}}</time>
+                </div>
+                <p class="entry">
+                    {{item[0]}}
+                </p>
+            </article>
+        {% endfor %}
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__content">
+            <section class="left">
+                <div class="footer__left">
+                    <a class="footer__item">Made by Kevin Jacob</a>
+                    <a class="footer__item">Check out my other Projects</a>
+                </div>
+            </section>
+            <section class="footer__content">
+                <div class="footer__right">
+                    <a class="footer__item">Recent</a>
+                    <a class="footer__item">Calander</a>
+                </div>
+                <div class="footer__right">
+                    <a class="footer__item">About</a>
+                    <a class="footer__item">How this was made</a>
+                </div>
+            </section>
+
+        </div>
+
+    </footer>
+</body>
+</html>
