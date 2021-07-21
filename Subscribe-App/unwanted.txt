@@ -1,0 +1,22 @@
+conn.execute("""CREATE TABLE Login(
+    EID integer,
+    FirstName text,
+    LastName text
+    )""")
+############################################################################
+
+c.execute("INSERT INTO Login VALUES(132, 'Kevin', 'Jacob')")
+##########################################################################
+
+c.execute("select * from Login")
+print(c.fetchall())
+
+#########################################################################
+
+eid = request.form['id']
+    fname = request.form['fname']
+    lname = request.form['lname']
+    conn = sqlite3.connect('employees.db')
+    c = conn.cursor()
+    c.execute("INSERT INTO Login VALUES({}, '{}', '{}')".format(eid, fname, lname))
+    conn.commit()

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Data Page</title>
+  <meta name="description" content="My Page Description">
+</head>
+<body>
+    <h2>Database Page</h2>
+    <table style="border: 1px solid black;">
+      <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black; font-weight: bold; width:20%">Employee ID</td>
+        <td style="border: 1px solid black; font-weight: bold; width:30%">First Name</td>
+        <td style="border: 1px solid black; font-weight: bold; width:30%"> Last Name</td>
+      </tr>
+      {%for item in data%}
+      <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black; ">{{item[0]}}</td>
+        <td style="border: 1px solid black">{{item[1]}}</td>
+        <td style="border: 1px solid black">{{item[2]}}</td>
+      </tr>
+      {%endfor%}
+    </table>
+    
+    {%if data != null %}
+    <a href="/deleteRecords">Delete All Records</a>
+    {% else %}
+    <p>No Records on Database.</p>
+    {% endif %}
+    
+</body>
+</html>
